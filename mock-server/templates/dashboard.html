@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HPE iLO Dashboard</title>
+    <style>
+        body {
+            font-family: 'Metric', Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #fff;
+            height: calc(100vh - 60px);
+            float: left;
+            border-right: 1px solid #ddd;
+        }
+
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #01a982;
+        }
+
+        .info-row {
+            display: flex;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .info-label {
+            width: 150px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .status-ok {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div>HPE iLO 5 - {{ system.Name }}</div>
+        <div>admin | Logout</div>
+    </div>
+    <div class="sidebar">
+        <ul style="list-style: none; padding: 20px;">
+            <li style="margin-bottom: 10px; color: #01a982; font-weight: bold;">Information</li>
+            <li style="margin-bottom: 10px;">System Summary</li>
+            <li style="margin-bottom: 10px;">Processor</li>
+            <li style="margin-bottom: 10px;">Memory</li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>Information Overview</h1>
+        <div class="card" id="systemSummary">
+            <div class="info-row">
+                <div class="info-label">System Name:</div>
+                <div id="sysName">{{ system.Name }}</div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">Manufacturer:</div>
+                <div>{{ system.Manufacturer }}</div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">Model:</div>
+                <div>{{ system.Model }}</div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">Serial Number:</div>
+                <div>{{ system.SerialNumber }}</div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">Health Status:</div>
+                <div class="status-ok" id="healthStatus">{{ system.Status.Health }}</div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">Power State:</div>
+                <div id="powerState">{{ system.PowerState }}</div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">Power Consumption:</div>
+                <div id="pwrConsumed">{{ power.PowerConsumedWatts }} W</div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">iLO Firmware:</div>
+                <div id="iloFirmware">{{ manager.FirmwareVersion }}</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

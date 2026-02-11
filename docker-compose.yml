@@ -1,0 +1,7 @@
+services:
+  ilo-simulator:
+    build: ./mock-server
+    ports:
+      - "5000:5000"
+    container_name: ilo-simulator
+    restart: always

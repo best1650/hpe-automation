@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.12.8 on darwin)" generated="2026-02-11T15:54:00.262205" rpa="false" schemaversion="5">
+<suite id="s1" name="Hybrid Verification" source="/Users/zilongli/Desktop/home/Side-Jobs/AI/hpe-automation/tests/hybrid_verification.robot">
+<test id="s1-t1" name="Verify API and UI Consistency" line="16">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-02-11T15:54:00.382011" level="INFO">Creating Session using : alias=ilo, url=https://localhost:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>ilo</arg>
+<arg>${URL}</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-02-11T15:54:00.381884" elapsed="0.000229"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-02-11T15:54:00.405703" level="INFO">GET Request : url=https://localhost:5000/redfish/v1/Systems/1 
+ path_url=/redfish/v1/Systems/1 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-02-11T15:54:00.405772" level="INFO">GET Response : url=https://localhost:5000/redfish/v1/Systems/1 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.5 Python/3.9.25', 'Date': 'Wed, 11 Feb 2026 21:54:00 GMT', 'Content-Type': 'application/json', 'Content-Length': '277', 'Connection': 'close'} 
+ body={"AssetTag":"Mock-Asset-123","BiosVersion":"U30 v2.42 (04/16/2021)","Id":"1","Manufacturer":"HPE","Model":"ProLiant DL380 Gen10","Name":"HPE ProLiant DL380 Gen10","PowerState":"On","SerialNumber":"SGH1234567","Status":{"Health":"OK","State":"Enabled"},"SystemType":"Physical"}
+ 
+ </msg>
+<msg time="2026-02-11T15:54:00.405805" level="INFO">/Users/zilongli/Desktop/home/Side-Jobs/AI/hpe-automation/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py:1064: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg time="2026-02-11T15:54:00.405880" level="INFO">${resp_sys} = &lt;Response [200]&gt;</msg>
+<var>${resp_sys}</var>
+<arg>ilo</arg>
+<arg>${API_SYS_PATH}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-11T15:54:00.382205" elapsed="0.023688"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-02-11T15:54:00.412163" level="INFO">GET Request : url=https://localhost:5000/redfish/v1/Chassis/1/Power 
+ path_url=/redfish/v1/Chassis/1/Power 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-02-11T15:54:00.412207" level="INFO">GET Response : url=https://localhost:5000/redfish/v1/Chassis/1/Power 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.5 Python/3.9.25', 'Date': 'Wed, 11 Feb 2026 21:54:00 GMT', 'Content-Type': 'application/json', 'Content-Length': '261', 'Connection': 'close'} 
+ body={"@odata.id":"/redfish/v1/Chassis/1/Power","Name":"Power","PowerControl":[{"PowerCapacityWatts":800,"PowerConsumedWatts":250}],"PowerSupplies":[{"Manufacturer":"HPE","MemberId":"0","Model":"800W Flex Slot Platinum","Status":{"Health":"OK","State":"Enabled"}}]}
+ 
+ </msg>
+<msg time="2026-02-11T15:54:00.412237" level="INFO">/Users/zilongli/Desktop/home/Side-Jobs/AI/hpe-automation/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py:1064: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg time="2026-02-11T15:54:00.412305" level="INFO">${resp_pwr} = &lt;Response [200]&gt;</msg>
+<var>${resp_pwr}</var>
+<arg>ilo</arg>
+<arg>${API_PWR_PATH}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-11T15:54:00.406000" elapsed="0.006317"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-02-11T15:54:00.419324" level="INFO">GET Request : url=https://localhost:5000/redfish/v1/Managers/1 
+ path_url=/redfish/v1/Managers/1 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-02-11T15:54:00.419362" level="INFO">GET Response : url=https://localhost:5000/redfish/v1/Managers/1 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.5 Python/3.9.25', 'Date': 'Wed, 11 Feb 2026 21:54:00 GMT', 'Content-Type': 'application/json', 'Content-Length': '142', 'Connection': 'close'} 
+ body={"@odata.id":"/redfish/v1/Managers/1","FirmwareVersion":"2.42","ManagerType":"BMC","Name":"iLO 5","Status":{"Health":"OK","State":"Enabled"}}
+ 
+ </msg>
+<msg time="2026-02-11T15:54:00.419389" level="INFO">/Users/zilongli/Desktop/home/Side-Jobs/AI/hpe-automation/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py:1064: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg time="2026-02-11T15:54:00.419438" level="INFO">${resp_mgr} = &lt;Response [200]&gt;</msg>
+<var>${resp_mgr}</var>
+<arg>ilo</arg>
+<arg>${API_MGR_PATH}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-11T15:54:00.412413" elapsed="0.007038"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-11T15:54:00.419850" level="INFO">${api_name} = HPE ProLiant DL380 Gen10</msg>
+<var>${api_name}</var>
+<arg>${resp_sys.json()['Name']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-11T15:54:00.419543" elapsed="0.000317"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-11T15:54:00.420149" level="INFO">${api_power} = 250</msg>
+<var>${api_power}</var>
+<arg>${resp_pwr.json()['PowerControl'][0]['PowerConsumedWatts']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-11T15:54:00.419921" elapsed="0.000239"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-11T15:54:00.420404" level="INFO">${api_fw} = 2.42</msg>
+<var>${api_fw}</var>
+<arg>${resp_mgr.json()['FirmwareVersion']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-11T15:54:00.420215" elapsed="0.000200"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-11T15:54:00.420563" level="INFO">API Name: HPE ProLiant DL380 Gen10</msg>
+<arg>API Name: ${api_name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-11T15:54:00.420471" elapsed="0.000109"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-11T15:54:00.420714" level="INFO">API Power: 250</msg>
+<arg>API Power: ${api_power}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-11T15:54:00.420634" elapsed="0.000095"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-11T15:54:00.420863" level="INFO">API Firmware: 2.42</msg>
+<arg>API Firmware: ${api_fw}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-11T15:54:00.420787" elapsed="0.000090"/>
+</kw>
+<kw name="Open Browser To Login Page">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-02-11T15:54:00.421403" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x110b3fd70&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-02-11T15:54:00.421116" elapsed="0.000298"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--ignore-certificate-errors</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-02-11T15:54:00.421502" elapsed="0.000087"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--allow-insecure-localhost</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-02-11T15:54:00.421625" elapsed="0.000079"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-11T15:54:00.421856" level="INFO">Opening browser 'chrome' to base url 'https://localhost:5000'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-11T15:54:00.421754" elapsed="0.886237"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-02-11T15:54:01.308293" elapsed="0.389353"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2026-02-11T15:54:01.701037" level="INFO">Page title is 'HPE iLO Login'.</msg>
+<arg>HPE iLO Login</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2026-02-11T15:54:01.697779" elapsed="0.003324"/>
+</kw>
+<status status="PASS" start="2026-02-11T15:54:00.420994" elapsed="1.280202"/>
+</kw>
+<kw name="Login With Valid Credentials">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-11T15:54:01.701917" level="INFO">Typing text 'admin' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-11T15:54:01.701583" elapsed="0.078632"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-02-11T15:54:01.780711" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg time="2026-02-11T15:54:01.792455" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-11T15:54:01.780388" elapsed="0.036121"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-02-11T15:54:01.816898" level="INFO">Clicking button 'id=loginButton'.</msg>
+<arg>id=loginButton</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-11T15:54:01.816721" elapsed="0.047172"/>
+</kw>
+<status status="PASS" start="2026-02-11T15:54:01.701402" elapsed="0.162579"/>
+</kw>
+<kw name="Verify Dashboard UI Data">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id=systemSummary</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-11T15:54:01.864429" elapsed="0.010418"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-02-11T15:54:01.875117" level="INFO">Verifying element 'id=sysName' contains exact text 'HPE ProLiant DL380 Gen10'.</msg>
+<arg>id=sysName</arg>
+<arg>${expected_name}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-02-11T15:54:01.874961" elapsed="0.009322"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-02-11T15:54:01.884566" level="INFO">Verifying element 'id=pwrConsumed' contains exact text '250 W'.</msg>
+<arg>id=pwrConsumed</arg>
+<arg>${expected_power} W</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-02-11T15:54:01.884399" elapsed="0.006824"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-02-11T15:54:01.891485" level="INFO">Verifying element 'id=iloFirmware' contains exact text '2.42'.</msg>
+<arg>id=iloFirmware</arg>
+<arg>${expected_fw}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-02-11T15:54:01.891336" elapsed="0.006091"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-11T15:54:01.897711" level="INFO">Hybrid verification successful: API and UI data matches.</msg>
+<arg>Hybrid verification successful: API and UI data matches.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-11T15:54:01.897532" elapsed="0.000200"/>
+</kw>
+<arg>${api_name}</arg>
+<arg>${api_power}</arg>
+<arg>${api_fw}</arg>
+<status status="PASS" start="2026-02-11T15:54:01.864222" elapsed="0.033541"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-02-11T15:54:01.897901" elapsed="0.089448"/>
+</kw>
+<doc>Test to verify consistency between Redfish API data and Web UI</doc>
+<status status="PASS" start="2026-02-11T15:54:00.381346" elapsed="1.606097"/>
+</test>
+<status status="PASS" start="2026-02-11T15:54:00.263107" elapsed="1.724610"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Hybrid Verification" id="s1" pass="1" fail="0" skip="0">Hybrid Verification</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

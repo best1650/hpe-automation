@@ -1,0 +1,9 @@
+robotframework
+robotframework-seleniumlibrary
+robotframework-requests
+requests
+selenium
+webdriver-manager
+flask
+python-ilorest-library
+urllib3<2.0.0
