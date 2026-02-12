@@ -2,7 +2,10 @@
 
 These questions focus on the strategy, lifecycle, and improvement of server platform validation environments.
 
-## 1. Describe the NPI (New Product Introduction) validation lifecycle.
+## 1. What is Server Platform Validation and why is it critical?
+**Answer:** Server Platform Validation is the rigorous process of ensuring that all hardware, firmware, and software components of a server (like HPE ProLiant) work together seamlessly as a system. It is critical because servers are the backbone of data centers; any defect in platform integration can lead to massive data loss, system downtime, or security vulnerabilities for enterprise customers.
+
+## 2. Describe the NPI (New Product Introduction) validation lifecycle.
 **Answer:** It starts with requirements analysis and planning (Test Strategy), followed by test development (Scripts), test execution (Manual/Automated), defect identification and debugging, fix validation, and finally, product release certification.
 
 ## 2. How do you decide what should be automated vs. tested manually?

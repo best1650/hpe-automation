@@ -2,8 +2,8 @@
 
 These questions focus on using Robot Framework for keyword-driven automation in server environments.
 
-## 1. What is Robot Framework, and why is it used for server integration testing?
-**Answer:** It is an open-source automation framework that uses a keyword-driven approach. It's ideal for server testing because it allows engineers (even those with less programming experience) to write tests in human-readable language (English-like). Its "Library" system makes it easy to integrate SSH, HTTP (Requests), and Selenium.
+## 1. What is Robot Framework and why is it used for HPE server integration testing?
+**Answer:** Robot Framework is an open-source automation framework that uses a keyword-driven approach. It's ideal for server validation because it allows engineers (even those with less programming experience) to write tests in human-readable language. Its modular library system easily integrates with SSH, Redfish, and Selenium, making it the "gold standard" for cross-disciplinary platform testing at HPE.
 
 ## 2. Explain the difference between "Library" and "Resource" in Robot Framework.
 **Answer:**

@@ -25,38 +25,38 @@
 除了常见的 `/redfish/v1/Systems/1` 之外，以下是针对 HPE iLO 优化的测试路径和场景。
 
 ### A. 系统清单与状态 (System Inventory & Health)
-| Redfish Path | English Scenario | 中文测试场景 |
-| :--- | :--- | :--- |
-| `/redfish/v1/Systems/1/Processors` | Verify CPU count, model, and health status. | 验证 CPU 的数量、型号及健康状态。 |
-| `/redfish/v1/Systems/1/Memory` | Check memory capacity and DIMM slot status. | 检查内存总容量及各插槽内存条状态。 |
-| `/redfish/v1/Systems/1/NetworkInterfaces` | Retrieve NIC adapter details and MAC addresses. | 获取网卡适配器详情及 MAC 地址。 |
+| Redfish Path | English Scenario | 中文测试场景 | cURL Example |
+| :--- | :--- | :--- | :--- |
+| `/redfish/v1/Systems/1/Processors` | Verify CPU count, model, and health status. | 验证 CPU 的数量、型号及健康状态。 | `curl -u admin:password -k https://<iLO_IP>/redfish/v1/Systems/1/Processors` |
+| `/redfish/v1/Systems/1/Memory` | Check memory capacity and DIMM slot status. | 检查内存总容量及各插槽内存条状态。 | `curl -u admin:password -k https://<iLO_IP>/redfish/v1/Systems/1/Memory` |
+| `/redfish/v1/Systems/1/NetworkInterfaces` | Retrieve NIC adapter details and MAC addresses. | 获取网卡适配器详情及 MAC 地址。 | `curl -u admin:password -k https://<iLO_IP>/redfish/v1/Systems/1/NetworkInterfaces` |
 
 ### B. 电源与温度 (Power & Thermal)
-| Redfish Path | English Scenario | 中文测试场景 |
-| :--- | :--- | :--- |
-| `/redfish/v1/Chassis/1/Power` | Monitor real-time power consumption and PSU health. | 监控实时功耗、电源模块状态及冗余性。 |
-| `/redfish/v1/Chassis/1/Thermal` | Verify fan speeds and ambient temperature sensors. | 验证风扇转速是否正常，监控各位置温度。 |
-| `POST .../Actions/ComputerSystem.Reset` | Power cycle: Execute GracefulRestart or ForceOff. | 电源控制：执行正常重启、强制关机或开机操作。 |
+| Redfish Path | English Scenario | 中文测试场景 | cURL Example |
+| :--- | :--- | :--- | :--- |
+| `/redfish/v1/Chassis/1/Power` | Monitor real-time power consumption and PSU health. | 监控实时功耗、电源模块状态及冗余性。 | `curl -u admin:password -k https://<iLO_IP>/redfish/v1/Chassis/1/Power` |
+| `/redfish/v1/Chassis/1/Thermal` | Verify fan speeds and ambient temperature sensors. | 验证风扇转速是否正常，监控各位置温度。 | `curl -u admin:password -k https://<iLO_IP>/redfish/v1/Chassis/1/Thermal` |
+| `POST .../Actions/ComputerSystem.Reset` | Power cycle: Execute GracefulRestart or ForceOff. | 电源控制：执行正常重启、强制关机或开机操作。 | `curl -u admin:password -k -X POST -H "Content-Type: application/json" -d '{"ResetType": "ForceRestart"}' https://<iLO_IP>/redfish/v1/Systems/1/Actions/ComputerSystem.Reset` |
 
 ### C. 存储管理 (Storage Management)
-| Redfish Path | English Scenario | 中文测试场景 |
-| :--- | :--- | :--- |
-| `/redfish/v1/Systems/1/Storage` | List RAID controllers (e.g., Smart Array). | 列出服务器内的存储控制器（如 Smart Array）。 |
-| `/redfish/v1/Systems/1/Storage/1/Drives` | Monitor health of individual physical drives. | 监控每一块物理硬盘的健康状况。 |
-| `/redfish/v1/Systems/1/Storage/1/Volumes` | Verify logical drive (RAID volume) configurations. | 验证逻辑卷（RAID 阵列）的配置和状态。 |
+| Redfish Path | English Scenario | 中文测试场景 | cURL Example |
+| :--- | :--- | :--- | :--- |
+| `/redfish/v1/Systems/1/Storage` | List RAID controllers (e.g., Smart Array). | 列出服务器内的存储控制器（如 Smart Array）。 | `curl -u admin:password -k https://<iLO_IP>/redfish/v1/Systems/1/Storage` |
+| `/redfish/v1/Systems/1/Storage/1/Drives` | Monitor health of individual physical drives. | 监控每一块物理硬盘的健康状况。 | `curl -u admin:password -k https://<iLO_IP>/redfish/v1/Systems/1/Storage/1/Drives` |
+| `/redfish/v1/Systems/1/Storage/1/Volumes` | Verify logical drive (RAID volume) configurations. | 验证逻辑卷（RAID 阵列）的配置和状态。 | `curl -u admin:password -k https://<iLO_IP>/redfish/v1/Systems/1/Storage/1/Volumes` |
 
 ### D. 日志与维护 (Logs & Maintenance)
-| Redfish Path | English Scenario | 中文测试场景 |
-| :--- | :--- | :--- |
-| `/redfish/v1/Managers/1/LogServices/IML/Entries` | Read Integrated Management Log (IML) events. | 读取集成管理日志（IML），用于硬件故障回溯。 |
-| `/redfish/v1/Managers/1/LogServices/IEL/Entries` | Read iLO Event Log (IEL) for management events. | 读取 iLO 事件日志，监控管理芯片的行为。 |
-| `/redfish/v1/UpdateService/FirmwareInventory` | Check firmware versions for iLO, BIOS, and NICs. | 检查 iLO、BIOS、网卡等组件的固件版本。 |
+| Redfish Path | English Scenario | 中文测试场景 | cURL Example |
+| :--- | :--- | :--- | :--- |
+| `/redfish/v1/Managers/1/LogServices/IML/Entries` | Read Integrated Management Log (IML) events. | 读取集成管理日志（IML），用于硬件故障回溯。 | `curl -u admin:password -k https://<iLO_IP>/redfish/v1/Managers/1/LogServices/IML/Entries` |
+| `/redfish/v1/Managers/1/LogServices/IEL/Entries` | Read iLO Event Log (IEL) for management events. | 读取 iLO 事件日志，监控管理芯片的行为。 | `curl -u admin:password -k https://<iLO_IP>/redfish/v1/Managers/1/LogServices/IEL/Entries` |
+| `/redfish/v1/UpdateService/FirmwareInventory` | Check firmware versions for iLO, BIOS, and NICs. | 检查 iLO、BIOS、网卡等组件的固件版本。 | `curl -u admin:password -k https://<iLO_IP>/redfish/v1/UpdateService/FirmwareInventory` |
 
 ### E. iLO 管理配置 (iLO Manager Config)
-| Redfish Path | English Scenario | 中文测试场景 |
-| :--- | :--- | :--- |
-| `/redfish/v1/Managers/1/EthernetInterfaces/1` | Get/Set iLO static IP or DHCP configuration. | 获取或设置 iLO 管理网口的静态 IP 或 DHCP 配置。 |
-| `/redfish/v1/AccountService/Accounts` | Manage iLO local user accounts and privileges. | 管理 iLO 本地用户账户及其权限级别。 |
+| Redfish Path | English Scenario | 中文测试场景 | cURL Example |
+| :--- | :--- | :--- | :--- |
+| `/redfish/v1/Managers/1/EthernetInterfaces/1` | Get/Set iLO static IP or DHCP configuration. | 获取或设置 iLO 管理网口的静态 IP 或 DHCP 配置。 | `curl -u admin:password -k https://<iLO_IP>/redfish/v1/Managers/1/EthernetInterfaces/1` |
+| `/redfish/v1/AccountService/Accounts` | Manage iLO local user accounts and privileges. | 管理 iLO 本地用户账户及其权限级别。 | `curl -u admin:password -k https://<iLO_IP>/redfish/v1/AccountService/Accounts` |
 
 ---
 

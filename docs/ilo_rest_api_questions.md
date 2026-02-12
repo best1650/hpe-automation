@@ -2,7 +2,10 @@
 
 These questions focus on the Redfish standard and HPE's implementation via the iLO RESTful API.
 
-## 1. What is Redfish?
+## 1. What is the iLO RESTful API and how does it relate to the Redfish standard?
+**Answer:** The iLO RESTful API is a management interface that uses the DMTF Redfish standard to allow for the management of Hewlett Packard Enterprise ProLiant servers. It provides a modern, secure, and scalable way to perform tasks like power management, configuration changes, and health monitoring using standard HTTP/HTTPS methods and JSON data structures.
+
+## 2. What is Redfish?
 **Answer:** Redfish is a standard created by the DMTF (Distributed Management Task Force). It uses RESTful interfaces (HTTP/HTTPS), JSON formatting, and OData to provide a modern, secure, and scalable way to manage data center hardware. It replaces legacy IPMI.
 
 ## 2. What is the difference between Redfish and the "iLO RESTful API"?

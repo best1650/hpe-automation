@@ -2,7 +2,10 @@
 
 These questions focus on the application of Python in server validation, automation frameworks, and hardware interaction.
 
-## 1. How do you handle large log files in Python without consuming too much memory?
+## 1. What is Python and how does it fit into Server Platform Integration Testing?
+**Answer:** Python is a high-level, interpreted programming language known for its readability and vast ecosystem of libraries. In server validation, it's the "glue" that connects different tools. It's used to write test scripts, automate iLO REST API calls (Redfish), parse complex hardware logs, and interface with lab equipment via SSH or Serial consoles.
+
+## 2. How do you handle large log files in Python without consuming too much memory?
 **Answer:** Use a generator to read the file line by line:
 ```python
 def read_logs(file_path):

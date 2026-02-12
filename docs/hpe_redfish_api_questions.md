@@ -2,7 +2,10 @@
 
 These questions focus specifically on HPE's implementation of the Redfish standard and the tools provided by HPE to interact with it.
 
-## 1. What are the advantages of using the `python-ilorest-library` over standard `requests` for HPE Redfish?
+## 1. What is the HPE Redfish API and how does it differ from standard DMTF Redfish?
+**Answer:** The HPE Redfish API is Hewlett Packard Enterprise's implementation of the DMTF Redfish standard for iLO-managed servers. While it strictly follows the standard schemas for interoperability, it also includes extensive "OEM Extensions" that allow for management of HPE-specific innovations like Smart Array controllers, Silicon Root of Trust, and detailed AHS log access that aren't yet part of the base standard.
+
+## 2. What are the advantages of using the `python-ilorest-library` over standard `requests` for HPE Redfish?
 **Answer:** The `python-ilorest-library` (often imported as `redfish`) handles several complex tasks automatically:
 - Session management (Login/Logout).
 - Automatic selection of the appropriate Redfish version based on the iLO generation.

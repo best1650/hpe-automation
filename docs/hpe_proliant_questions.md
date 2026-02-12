@@ -2,7 +2,10 @@
 
 These questions focus on the hardware architecture, management, and troubleshooting of HPE ProLiant servers.
 
-## 1. What are the key differences between HPE ProLiant Gen10 and Gen11 servers?
+## 1. What are HPE ProLiant servers?
+**Answer:** HPE ProLiant is a brand of server computers originally developed and marketed by Compaq and currently marketed by Hewlett Packard Enterprise. They are modular, highly scalable servers designed for various workloads, from small businesses to large data centers, and are known for their industry-leading management (iLO) and security features (Silicon Root of Trust).
+
+## 2. What are the key differences between HPE ProLiant Gen10 and Gen11 servers?
 **Answer:** Gen11 introduced support for 4th/5th Gen Intel Xeon Scalable and 4th Gen AMD EPYC processors, DDR5 memory, PCIe Gen5, and iLO 6. It also features a more advanced "Silicon Root of Trust" and better support for AI-ready workloads.
 
 ## 2. What is "Silicon Root of Trust"?
